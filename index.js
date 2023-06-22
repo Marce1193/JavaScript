@@ -6,17 +6,44 @@ let seleccionarProducto = parseInt(prompt('Hola ' + nombre + ', ingresa el numer
 
 let comprar = true
 let decisión
+// incorporacion de arrays
+let productos = []
+let carrito = []
+
+// incorporacion de objetos
+class producto {
+    constructor(nombre, precio, id){
+        this.nombre = nombre,
+        this.precio = precio,
+        this.id = id
+    }
+}
+
+// incorporacion de metodo push
+const producto1 = new producto('terciopelo', 1250, 1)
+productos.push(producto1)
+
+const producto2 = new producto('plumeti', 950, 2)
+productos.push(producto2)
+
+const producto3 = new producto('encaje', 950, 3)
+productos.push(producto3)
+
+const producto4 = new producto('encajeAro', 1000, 4)
+productos.push(producto4)
+
+console.log(productos)
 
 while (comprar === true) {
     if (seleccionarProducto === 1) {
-        total = total + 1250
+        carrito.push(productos[0])
     }else if (seleccionarProducto ===2) {
-        total = total + 950
+        carrito.push(productos[1])
     }else if (seleccionarProducto ===3) {
-        total = total + 950
+        carrito.push(productos[2])
     }else if (seleccionarProducto === 4) {
-        total = total + 1000
-    }else{
+        carrito.push(productos[3])
+    }else {
         seleccionarProducto = parseInt(prompt('El numero ingresado no pertenece a un producto existente, por favor ingresa nuevamente el numero del producto que desea agregar al carrito: 1.Conjunto de terciopelo  2.Conjunto de plumeti  3.Conjunto de encaje  4.Conjunto de encaje con aro'))
         continue
     }
@@ -29,9 +56,18 @@ while (comprar === true) {
     }
 
 
-
-
 }
+
+carrito.forEach( (elemento) => {
+    total = total + elemento.precio
+})
+
+// for (let i = 0; i < carrito.length; i++) {
+//     total = total + carrito[i].precio   
+// }
+
+
+console.log(carrito);
 
 alert('Pagando con tarjeta de crédito, débito o mercado pago el valor total es de $'+total)
 
