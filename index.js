@@ -32,7 +32,6 @@ productos.push(producto3)
 const producto4 = new producto('encajeAro', 1000, 4)
 productos.push(producto4)
 
-console.log(productos)
 
 while (comprar === true) {
     if (seleccionarProducto === 1) {
@@ -58,16 +57,13 @@ while (comprar === true) {
 
 }
 
+// incorporacion de funcion de orden superior forEach
+
 carrito.forEach( (elemento) => {
     total = total + elemento.precio
 })
 
-// for (let i = 0; i < carrito.length; i++) {
-//     total = total + carrito[i].precio   
-// }
 
-
-console.log(carrito);
 
 alert('Pagando con tarjeta de crédito, débito o mercado pago el valor total es de $'+total)
 
